@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework</title>
 </head>
+
 <body>
-<!--
+  <!--
 Обязательное задание.
 
 Необходимо скопировать и вставить в данный скрипт все функции из 4 задания.
@@ -29,10 +31,74 @@ Infinity делать не нужно, однако, в случае если б
 
 Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
 -->
-<script>
-  "use strict";
+  <script>
+    "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
-</script>
+    /**
+    * Складывает а и b
+    * @param {number} a - Первое число
+    * @param {number} b - Второе число
+    */
+    function add(a, b) {
+      return a + b;
+    }
+
+    /**
+    * Умножает а на b
+    * @param {number} a - Первое число
+    * @param {number} b - Второе число
+    */
+    function mul(a, b) {
+      return a * b;
+    }
+
+    /**
+    * Делит а на b
+    * @param {number} a - Первое число
+    * @param {number} b - Второе число
+    */
+    function div(a, b) {
+      return a / b;
+    }
+
+    /**
+    * Вычитает из большего числа меньшее
+    * @param {number} a - Первое число
+    * @param {number} b - Второе число
+    */
+    function sub(a, b) {
+      if (a > b) return a - b;
+      return b - a;
+    }
+
+    /**
+    * Функция калькулятор
+    * @param {number} arg1 - Первое число
+    * @param {number} arg2 - Второе число
+    * @param {string} operation - оператор {"+", "-", "*", "/"}
+    */
+    function mathOperation(arg1, arg2, operation) {
+      switch (operation) {
+        case '+':
+          return add(arg1, arg2)
+        case '-':
+          return sub(arg1, arg2)
+        case '*':
+          return mul(arg1, arg2)
+        case '/':
+          return div(arg1, arg2)
+        default:
+          return NaN;
+      }
+    }
+
+    console.log(mathOperation(2, 6, "+"));
+    console.log(mathOperation(2, 10, "*"));
+    console.log(mathOperation(6, 3, "/"));
+    console.log(mathOperation(2, 6, "-"));
+    console.log(mathOperation(2, 6, ":"));
+
+  </script>
 </body>
+
 </html>
