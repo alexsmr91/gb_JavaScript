@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework</title>
 </head>
+
 <body>
-<!--
+  <!--
 Необязательное задание, но желательно сделать.
 
 Необходимо данное задание выполнить в es5 стиле и в es6 стиле.
@@ -47,10 +49,96 @@
 что-нибудь пропустить.
 4. Если непонятно условие - задайте вопрос.
 -->
-<script>
-  "use strict";
+  <script>
+    "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
-</script>
+    function sleep(milliseconds) {
+      const date = Date.now();
+      let currentDate = null;
+      do {
+        currentDate = Date.now();
+      } while (currentDate - date < milliseconds);
+    }
+
+    function PostES5(autorName, text) {
+      this.autorName = autorName;
+      this.text = text;
+      let date = new Date();
+      this.modifyDateTime = date.getTime();
+    }
+    PostES5.prototype.edit = function (text) {
+      this.text = text;
+      let date = new Date();
+      this.modifyDateTime = date.getTime();
+    }
+
+    function AttachedPostES5(autorName, text) {
+      PostES5.call(this, autorName, text)
+      this.highlighted = false;
+    }
+    AttachedPostES5.prototype.makeTextHighlighted = function () {
+      if (!this.highlighted) {
+        this.highlighted = true;
+        let date = new Date();
+        this.modifyDateTime = date.getTime();
+      }
+    }
+
+    class PostES6 {
+      constructor(autorName, text) {
+        this.autorName = autorName;
+        this.text = text;
+        let date = new Date();
+        this.modifyDateTime = date.getTime();
+      }
+      edit(text) {
+        this.text = text;
+        let date = new Date();
+        this.modifyDateTime = date.getTime();
+      }
+    }
+
+    class AttachedPostES6 extends PostES6 {
+      constructor(autorName, text) {
+        super(autorName, text);
+        this.highlighted = false;
+      }
+      makeTextHighlighted() {
+        if (!this.highlighted) {
+          this.highlighted = true;
+          let date = new Date();
+          this.modifyDateTime = date.getTime();
+        }
+      }
+    }
+
+
+    const post1 = new PostES5('Алексей', 'Lorem ipsum, dolor sit amet consectetur');
+    console.log(post1);
+    sleep(777);
+    post1.edit('LLLLL ipsum, dolor sit amet consectetur');
+    console.log(post1);
+
+    const post2 = new PostES6('Алексей', 'Lorem ipsum, dolor sit amet consectetur');
+    console.log(post2);
+    sleep(777);
+    post2.edit('LLLLL ipsum, dolor sit amet consectetur');
+    console.log(post2);
+
+    const post3 = new AttachedPostES5('Алексей', 'Lorem ipsum, dolor sit amet consectetur');
+    console.log(post3);
+    sleep(777);
+    post3.makeTextHighlighted();
+    console.log(post3);
+
+    const post4 = new AttachedPostES6('Алексей', 'Lorem ipsum, dolor sit amet consectetur');
+    console.log(post4);
+    sleep(777);
+    post4.makeTextHighlighted();
+    console.log(post4);
+
+
+  </script>
 </body>
+
 </html>

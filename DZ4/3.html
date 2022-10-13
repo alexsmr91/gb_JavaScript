@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework</title>
 </head>
+
 <body>
-<!--
+  <!--
 Необязательное задание.
 
 Необходимо создать функцию getDigitsOfNumber, которая принимает целое
@@ -28,10 +30,34 @@
 Обратите внимание на слова "от 0 до 1000", это означает диапазон [0, 999], что
 можно прочитать как "от нуля до 999 включительно".
 -->
-<script>
-  "use strict";
+  <script>
+    "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
-</script>
+    function getDigitsOfNumber(num) {
+      let answer = {
+        units: null,
+        dozens: null,
+        hundreds: null,
+      }
+      if (num < 0 || num > 999) {
+        console.warn('Ожидалось число из диапазона [0, 999] включительно')
+        return answer
+      }
+      answer.units = num % 10;
+      num = Math.floor(num / 10);
+      answer.dozens = num % 10;
+      num = Math.floor(num / 10);
+      answer.hundreds = num
+      return answer;
+    }
+
+    console.log(getDigitsOfNumber(-1));
+    console.log(getDigitsOfNumber(1000));
+    console.log(getDigitsOfNumber(123));
+    console.log(getDigitsOfNumber(789));
+    console.log(getDigitsOfNumber(0));
+    console.log(getDigitsOfNumber(999));
+  </script>
 </body>
+
 </html>
