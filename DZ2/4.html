@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework</title>
 </head>
+
 <body>
-<!--
+  <!--
 Обязательное задание.
 
 Необходимо реализовать четыре функции, каждая функция должна принимать по два
@@ -28,10 +30,33 @@
 
 Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
 -->
-<script>
-  "use strict";
+  <script>
+    "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
-</script>
+    function add(a, b) {
+      return a + b;
+    }
+
+    function mul(a, b) {
+      return a * b;
+    }
+
+    function div(a, b) {
+      return a / b;
+    }
+
+    function sub(a, b) {
+      if (a > b) return a - b;
+      return b - a;
+    }
+
+    console.log(add(2, 6));
+    console.log(mul(2, 10));
+    console.log(div(6, 3));
+    console.log(sub(2, 6));
+    console.log(sub(6, 2));
+    console.log(sub(6, 6));
+  </script>
 </body>
+
 </html>
